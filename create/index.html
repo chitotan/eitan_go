@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>単語テスト問題リスト生成器</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>単語テスト問題リスト生成器</h1>
+    <table id="myTable">
+        <tr>
+            <th>答え</th>
+            <th>問題文</th>
+        </tr>
+        <tr>
+            <td><input type="text"></td>
+            <td>
+                <input id="qtext"type="text">
+                <button onclick="deleteRow(this.parentNode.parentNode)">行を削除</button>
+            </td>
+        </tr>
+    </table>
+    <div class="input-container">
+        <input type="text" id="addTitle" placeholder="タイトルを入力(例:〇〇テスト)">
+    </div>
+    <button onclick="addRow()">行を追加</button>
+    <button onclick="generateSentences()">リストを生成</button>
+    <!-- <button onclick="downloadSentences()">②リストをエクスポート</button> -->
+
+    <div id="sentencesContainer"></div>
+    <p>リストを生成する前に、必ずタイトルを入力してください。</p>
+    <p>生成後自動的にリストはダウンロードされます。(list.js.txt)</p>
+    <p>1行以上でないと生成されません。</p><br>
+    <a href="https://forms.gle/mGXdwWaTp9TjvyLs7" target="_blank">掲載申請はこちら</a>
+    <script src="script.js"></script>
+</body>
+</html>

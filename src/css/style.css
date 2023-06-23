@@ -1,0 +1,132 @@
+    /* リセットCSS */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 全体のスタイル */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    /* ヘッダー */
+    h1 {
+      text-align: center;
+      color: #333;
+      margin: 20px 0;
+    }
+
+    /* 問題コンテナ */
+    #questionContainer {
+      max-width: 500px;
+      margin: 0 auto;
+      margin-bottom : 50px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    /* 問題テキスト */
+    #question {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    /* 残りの問題数 */
+    #remainingCount {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    /* 回答入力欄 */
+    #answer {
+      font-size: 16px;
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    /* ボタン */
+    button {
+      text-align: center;
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      
+    }
+
+    /* 結果メッセージ */
+    #result {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    /* スコア */
+    #score {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    /* 間違えた問題 */
+    #incorrectWords {
+
+      margin: 20px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* テストボタン */
+    .action-button {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    /* ボタン間のスペース */
+    .action-button button:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    #retryButton {
+      margin: 10px;
+    }
+
+    #restartButton {
+      margin: 10px;
+    }
+
+    #scshot{
+      max-width: 400px;
+
+      text-align: center;
+      margin-bottom: 20px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    img {
+
+      max-width: 300px;
+      margin: 0 auto;
+
+      text-align: center;
+    }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <!-- <title>及び<h1 id=h1title>の内容は、list.jsで設定したtitle変数の内容に上書きされます。 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>タイトル</title>
+  <link rel="stylesheet" type="text/css" href="src/css/card-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="src/css/rightbutton.css">
+</head>
+<body lang="ja">
+  <div class="container">
+    <h1 class="h1title">タイトル</h1>
+    <div id="word-container">
+      <h2 id="word">単語</h2>
+      <p id="meaning">意味</p>
+    </div>
+    <span id="buttons"><button id="next-button">Next</button>  <button id="show-all-button">全て表示</button></span>
+    <input type="checkbox" id="random-checkbox">
+<label for="random-checkbox">ランダムに表示する</label>
+
+  <!-- 右下ボタンここから -->
+  <div id="floatingMenu" class="notshow">
+    <div class="flObj top">
+      <p>テスト問題</p>
+      <a href="index.html" target="_blank"><i class="fa-solid fa-book"></i></a>
+    </div>
+    <div class="flObj middle">
+      <p>ほかの問題を探す</p>
+      <a href="#"><i class="fa-solid fa-list"></i></a>
+    </div>
+    <div class="flObj middle">
+      <p>製作者ホームぺージ</p>
+      <a href="https://otoa.tech/?ref=eitango_tst" target="_blank"><i class="fa-solid fa-user"></i></a>
+    </div>
+    <!-- ＋のボタン -->
+    <div id="flObgToggle" class="flObj bottom">
+      <a></a>
+    </div>
+  </div>
+  <!-- 右下ボタンここまで -->
+
+  </div>
+  <script src="src/script/rightbutton.js"></script>
+  <script src="src/script/list.js"></script>
+  <script src="src/script/card.js"></script>
+</body>
+</html>

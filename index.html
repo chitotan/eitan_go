@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8"> 
+  <title>タイトル</title> 
+  <link rel="stylesheet" type="text/css" href="src/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="src/css/rightbutton.css">
+</head>
+<body>
+  <h1 class="h1title">タイトル</h1>
+  <div id="questionContainer">
+    <div id="question"></div>
+    <div id="remainingCount"></div>
+
+    <input type="text" id="answer" placeholder="回答を入力してください" onkeydown="handleKeyPress(event)">
+    <div class="action-button" id="buttonContainer">
+      <button onclick="checkAnswer()">回答する</button>
+      
+    </div>
+
+    <div id="remainingQuestions"></div>
+  </div>
+  <div id=scshot>
+    <button onclick="screenshot()">スクリーンショット</button><br>
+    <img style="text-align: center;" id="shotResult" />
+  </div>
+
+<!-- 右下ボタンここから -->
+  <div id="floatingMenu" class="notshow">
+    <div class="flObj top">
+      <p>スクリーンショット</p>
+      <a onclick="screenshot()"><i class="fa-solid fa-book"></i></a>
+    </div>
+    <div class="flObj top">
+      <p>フラッシュカードで学習</p>
+      <a href="card.html" target="_blank"><i class="fa-solid fa-book"></i></a>
+    </div>
+    <div class="flObj middle">
+      <p>ほかの問題を探す</p>
+      <a href="#"><i class="fa-solid fa-list"></i></a>
+    </div>
+    <div class="flObj middle">
+      <p>製作者ホームぺージ</p>
+      <a href="https://otoa.tech/?ref=eitango_tst" target="_blank"><i class="fa-solid fa-user"></i></a>
+    </div>
+    <!-- ＋のボタン -->
+    <div id="flObgToggle" class="flObj bottom">
+      <a></a>
+    </div>
+  </div>
+<!-- 右下ボタンここまで -->
+
+  <div id="result"></div>
+  <div id="score"></div>
+  <script src="src/script/rightbutton.js"></script> 
+  <script src="src/script/list.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+  <script src="src/script/main.js"></script>
+
+  <script>
+      var h1title = document.querySelector('h1.h1title');
+      h1title.textContent = title;
+      document.title = title;
+    // キープレスイベントを処理する関数
+    function handleKeyPress(event) {
+      // Enterキーまたは改行キーが押されたときに回答を確定する
+      if (event.key === "Enter" || event.key === "Return") {
+        event.preventDefault(); // デフォルトの改行処理をキャンセル
+        if (!isTestCompleted) {
+          checkAnswer();
+        }
+      }
+    }
+
+        //メニュー内スクショボタン処理
+        function screenshot(){
+      html2canvas(document.body,{
+        onrendered: function(canvas){
+
+          //imgタグのsrcの中に、html2canvasがレンダリングした画像を指定する。
+          var imgData = canvas.toDataURL();
+          document.getElementById("shotResult").src = imgData;
+        }
+      })
+    }
+  </script>
+</body>
+</html>
