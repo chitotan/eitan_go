@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DL</title>
+</head>
+<body>
+    <script>
+        function myfunc(filename, pathname){
+
+                var anchor = document.createElement('a');
+                anchor.download = filename;
+                var textnode = document.createTextNode("Click here to download!"); 
+                document.body.appendChild(anchor);
+                anchor.appendChild(textnode); 
+                    anchor.href = pathname;
+        }
+        myfunc("単語リストサイト_V4.1","../v4.1.zip");
+    </script>
+</body>
+</html>
