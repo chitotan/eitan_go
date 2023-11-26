@@ -1,0 +1,34 @@
+{
+
+    "title": "タイトル",
+    "testconfig": [
+      {
+        "ScriptVersion": "4.1"
+      },
+      {
+        "Version": "1"
+      },
+      {
+        "製作者": "User"
+      },
+      {
+        "制作日": "20230621"
+      }
+    ],
+    
+    "words": [
+        {
+          "word": "ユーザーの回答",
+          "meaning": "出題される問題"
+        },
+        {
+          "word": "apple",
+          "meaning": "りんご"
+        },
+        {
+          "word": "banana",
+          "meaning": "バナナ"
+        }
+      ]
+  }
+  

@@ -1,7 +1,10 @@
-// #### V4.1 ####
-// update : 20230621
+// #### V6.0 ####
+// update : 202301109
 // made by chitoheymu_kakka ｜　https://chitotan.com/
 
+var h1title = document.querySelector('h1.h1title');
+h1title.textContent = title;
+document.title = title;
   // 問題の順番をランダムに並び替える
   shuffleArray(words);
   
@@ -67,7 +70,6 @@ function showQuestion() {
     } else {
       // 全ての問題が終了した場合の処理
       isTestCompleted = true;
-  
       var questionContainer = document.getElementById("questionContainer");
       questionContainer.style.display = "none";
       resultElement.innerHTML += " 全ての問題が終了しました。";
@@ -149,7 +151,8 @@ function showQuestion() {
     score = 0;
     incorrectWords = [];
     isTestCompleted = false;
-  
+    document.getElementById('result').innerHTML = '';
+
     var incorrectWordsElement = document.getElementById("incorrectWords");
     var retryButton = document.getElementById("retryButton");
     var restartButton = document.getElementById("restartButton");

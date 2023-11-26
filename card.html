@@ -13,8 +13,8 @@
   <div class="container">
     <h1 class="h1title">タイトル</h1>
     <div id="word-container">
-      <h2 id="word">単語</h2>
-      <p id="meaning">意味</p>
+      <input type="file" id="fileInput" accept=".json">
+      <button onclick="loadFile()">ファイル読み込み</button>
     </div>
     <span id="buttons"><button id="next-button">Next</button>  <button id="show-all-button">全て表示</button></span>
     <input type="checkbox" id="random-checkbox">
@@ -43,7 +43,6 @@
 
   </div>
   <script src="src/script/rightbutton.js"></script>
-  <script src="src/script/list.js"></script>
-  <script src="src/script/card.js"></script>
+  <script src="src/script/jsonloader_card.js"></script>
 </body>
 </html>

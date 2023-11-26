@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>単語テスト問題リスト生成器</title>
+    <title>単語テスト問題リスト生成器 V6.0</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -17,23 +16,83 @@
         <tr>
             <td><input type="text"></td>
             <td>
-                <input id="qtext"type="text">
+                <input class="questionInput" type="text">
                 <button onclick="deleteRow(this.parentNode.parentNode)">行を削除</button>
             </td>
         </tr>
     </table>
     <div class="input-container">
-        <input type="text" id="addTitle" placeholder="タイトルを入力(例:〇〇テスト)">
+        <label for="title">タイトル</label>
+        <input type="text" id="addTitle" name="title" placeholder="タイトルを入力(例:〇〇テスト)">
+    </div>
+    <div class="input-container">
+        <label for="ver">バージョン</label>
+        <input type="text" name="ver" id="addVersion" placeholder="バージョンを入力">
+        <label for="creator">製作者名</label>
+        <input type="text" id="addAuthor"name="creator" placeholder="製作者を入力">
     </div>
     <button onclick="addRow()">行を追加</button>
     <button onclick="generateSentences()">リストを生成</button>
-    <!-- <button onclick="downloadSentences()">②リストをエクスポート</button> -->
-
+    
     <div id="sentencesContainer"></div>
     <p>リストを生成する前に、必ずタイトルを入力してください。</p>
-    <p>生成後自動的にリストはダウンロードされます。(list.js.txt)</p>
-    <p>1行以上でないと生成されません。</p><br>
-    <a href="https://forms.gle/mGXdwWaTp9TjvyLs7" target="_blank">掲載申請はこちら</a>
-    <script src="script.js"></script>
+    <a id="downloadLink" style="display: none">JSONファイルをダウンロード</a>
+
+    <script>
+        function addRow() {
+            var table = document.getElementById('myTable');
+            var newRow = table.insertRow(table.rows.length - 1);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            cell1.innerHTML = '<input type="text">';
+            cell2.innerHTML = '<input class="questionInput" type="text"><button onclick="deleteRow(this.parentNode.parentNode)">行を削除</button>';
+        }
+
+        function deleteRow(row) {
+            row.parentNode.removeChild(row);
+        }
+
+        function generateSentences() {
+            var title = document.getElementById('addTitle').value;
+            var version = document.getElementById('addVersion').value;
+            var author = document.getElementById('addAuthor').value;
+            var creationDate =  new Date();
+
+            var rows = document.querySelectorAll('.questionInput');
+            var words = [];
+
+            rows.forEach(function(row) {
+                var answer = row.parentNode.parentNode.cells[0].querySelector('input').value;
+                var question = row.value;
+                words.push({ word: answer, meaning: question });
+            });
+
+            var data = {
+                "words": words,
+                "title": title,
+                "testconfig": [
+                    { "ScriptVersion": "6.0" },
+                    { "Version": version },
+                    { "製作者": author },
+                    { "制作日": creationDate }
+                ]
+            };
+
+            var jsonData = JSON.stringify(data, null, 2);
+            document.getElementById('sentencesContainer').innerText = jsonData;
+
+             // JSONデータをファイルとしてダウンロード
+            var blob = new Blob([jsonData], { type: "application/json" });
+            var url = URL.createObjectURL(blob);
+            window.open(url)
+            var a = document.getElementById('downloadLink');
+            a.href = url;
+            a.download = title + ".json";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+    </script>
 </body>
 </html>

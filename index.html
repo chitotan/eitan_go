@@ -3,28 +3,16 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8"> 
-  <title>タイトル</title> 
+  <title>英単GO!</title> 
   <link rel="stylesheet" type="text/css" href="src/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type="text/css" href="src/css/rightbutton.css">
 </head>
 <body>
-  <h1 class="h1title">タイトル</h1>
+  <h1 class="h1title">英単GO!</h1>
   <div id="questionContainer">
-    <div id="question"></div>
-    <div id="remainingCount"></div>
-
-    <input type="text" id="answer" placeholder="回答を入力してください" onkeydown="handleKeyPress(event)">
-    <div class="action-button" id="buttonContainer">
-      <button onclick="checkAnswer()">回答する</button>
-      
-    </div>
-
-    <div id="remainingQuestions"></div>
-  </div>
-  <div id=scshot>
-    <button onclick="screenshot()">スクリーンショット</button><br>
-    <img style="text-align: center;" id="shotResult" />
+    <input type="file" id="fileInput" accept=".json">
+    <button onclick="loadFile()">ファイル読み込み</button>
   </div>
 
 <!-- 右下ボタンここから -->
@@ -55,9 +43,8 @@
   <div id="result"></div>
   <div id="score"></div>
   <script src="src/script/rightbutton.js"></script> 
-  <script src="src/script/list.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
-  <script src="src/script/main.js"></script>
+  <script src="src/script/jsonloader.js"></script> 
 
   <script>
       var h1title = document.querySelector('h1.h1title');
@@ -85,6 +72,8 @@
         }
       })
     }
+
+
   </script>
 </body>
 </html>
